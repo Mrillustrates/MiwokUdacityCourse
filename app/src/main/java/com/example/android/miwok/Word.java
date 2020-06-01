@@ -13,19 +13,25 @@ public class Word {
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String defaultTranslation, String miwokTranslation ){
+    /** Audio resource id for audio **/
+    private int mAudioId;
+
+
+    public Word(String defaultTranslation, String miwokTranslation, int audioId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioId = audioId;
 ;
     }
 
 
     //Constructor with image ID
 
-    public Word(String defaultTranslation, String miwokTranslation , int imageResourceId){
+    public Word(String defaultTranslation, String miwokTranslation , int imageResourceId , int audioId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioId = audioId;
     }
 
     /**
@@ -50,6 +56,10 @@ public class Word {
 
     public int getmImageResourceId(){
     return mImageResourceId;
+    }
+
+    public int getmAudioId() {
+        return mAudioId;
     }
 
     public boolean hasImage(){
