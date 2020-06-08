@@ -54,6 +54,12 @@ public class PhrasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
 
+
+        //This is used to setup an the Up button on top of the app for the child activities
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         //system method to use audio manager service
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
