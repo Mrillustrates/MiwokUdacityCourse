@@ -15,11 +15,10 @@
  */
 package com.example.android.miwok;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +33,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        //Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+
+        //Create an adapter which will show each page by scrolling
+        //Set the adapter onto the view page
+        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager(), this);
+        viewPager.setAdapter(adapter);
+
+
+        //TabLayout for the ViewPager
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+
+
+        /**
 // Find the View that shows the numbers category
         TextView numbers = (TextView) findViewById(R.id.numbers);
 
@@ -86,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
          startActivity(openNumbers);
          }
          **/
+
 
     }
 }
